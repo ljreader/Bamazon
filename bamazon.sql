@@ -31,7 +31,7 @@ VALUES
     -- Firm Ground Cleats --
     ("Nemeziz","Firm Ground Cleats",289.99,150),
     ("Copa","Firm Ground Cleats",199.99,35),
-    ("Predator","Firm Ground Cleats",299.99,230);
+    ("Predator","Firm Ground Cleats",299.99,230),
     ("Copa Mundial","Firm Ground Cleats",149.99,175),
     -- Soft Ground Cleats --
     ("World Cup","Soft Ground Cleats",159.99,200),

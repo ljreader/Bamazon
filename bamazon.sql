@@ -17,14 +17,15 @@ CREATE TABLE products(
     product_price DECIMAL(10,2) NOT NULL,
     -- product_quantity --
 	product_quantity INT(10) NOT NULL,
-      -- Sets "adidas_id" as this table's primary key which means all data contained within it will be unique --
 
+      -- Sets "adidas_id" as this table's primary key which means all data contained within it will be unique --
     PRIMARY KEY(adidas_id)
 );
 
+-- Select from products --
 SELECT * FROM products;
 
--- Creates new rows containing data in all named columns --
+-- Creates new rows in products table containing data in all named columns --
 INSERT INTO products(product_make,product_style,product_price,product_quantity)
 VALUES
     -- Firm Ground Cleats --
@@ -45,15 +46,16 @@ VALUES
     ("Samba","Indoor Shoe",95.50,135),
     ("Mundial Goal","Indoor Shoe",119.95,123);
 
+-- Creates new rows in the department table containing data in all named columns --
+CREATE TABLE department(
+    -- 
+    department_id INTEGER AUTO_INCREMENT NOT NULL,
+    department_name VARCHAR(50) NOT NULL,
+    overhead_costs DECIMAL(10,2) NOT NULL,
+    total_sales DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY(department_id));
 
-CREATE TABLE Departments(
-    DepartmentID MEDIUMINT AUTO_INCREMENT NOT NULL,
-    DepartmentName VARCHAR(50) NOT NULL,
-    OverHeadCosts DECIMAL(10,2) NOT NULL,
-    TotalSales DECIMAL(10,2) NOT NULL,
-    PRIMARY KEY(DepartmentID));
-
-INSERT INTO Departments(DepartmentName, OverHeadCosts, TotalSales)
+INSERT INTO department(department_name, overhead_costs, total_sales)
 VALUES ('Soft Ground Cleats', 50000.00, 15000.00),
     ('ELECTRONICS', 20000.00, 12000.00),
     ('HOME', 30000.00, 15000.00),

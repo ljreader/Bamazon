@@ -12,14 +12,14 @@ var connection = mysql.createConnection({
 
 function start(){
 //prints the items for sale and their details
-connection.query('SELECT * FROM Products', function(err, res){
+connection.query('SELECT * FROM products', function(err, res){
   if(err) throw err;
 
   console.log('_.~"~._.~"~._.~Welcome to BAMazon~._.~"~._.~"~._')
   console.log('----------------------------------------------------------------------------------------------------')
 
   for(var i = 0; i<res.length;i++){
-    console.log("ID: " + res[i].ItemID + " | " + "Product: " + res[i].ProductName + " | " + "Department: " + res[i].DepartmentName + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].StockQuantity);
+    console.log("ID: " + res[i].adidas_id + " | " + "Product: " + res[i].product_make + " | " + "Department: " + res[i].product_style + " | " + "Price: " + res[i].product_price + " | " + "QTY: " + res[i].product_quantity);
     console.log('--------------------------------------------------------------------------------------------------')
   }
 
@@ -57,7 +57,7 @@ connection.query('SELECT * FROM Products', function(err, res){
       //check if quantity is sufficient
       if(res[whatToBuy].StockQuantity >= howMuchToBuy){
         //after purchase, updates quantity in Products
-        connection.query("UPDATE Products SET ? WHERE ?", [
+        connection.query("UPDATE products SET ? WHERE ?", [
         {StockQuantity: (res[whatToBuy].StockQuantity - howMuchToBuy)},
         {ItemID: ans.id}
         ], function(err, result){
@@ -69,7 +69,7 @@ connection.query('SELECT * FROM Products', function(err, res){
           if(err) throw err;
           var index;
           for(var i = 0; i < deptRes.length; i++){
-            if(deptRes[i].DepartmentName === res[whatToBuy].DepartmentName){
+            if(deptRes[i].product_style === res[whatToBuy].product_style){
               index = i;
             }
           }
@@ -77,7 +77,7 @@ connection.query('SELECT * FROM Products', function(err, res){
           //updates totalSales in departments table
           connection.query("UPDATE Departments SET ? WHERE ?", [
           {TotalSales: deptRes[index].TotalSales + grandTotal},
-          {DepartmentName: res[whatToBuy].DepartmentName}
+          {product_style: res[whatToBuy].product_style}
           ], function(err, deptRes){
               if(err) throw err;
               //console.log("Updated Dept Sales.");

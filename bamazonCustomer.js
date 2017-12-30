@@ -19,7 +19,7 @@ connection.query('SELECT * FROM Products', function(err, res){
   console.log('-------------------')
 
   for(var i = 0; i<res.length; i++){
-    console.log("ID: " + res[i].adidas_id + " | " + "Product: " + res[i].product_make + " | " + "Department: " + res[i].product_style + " | " + "Price: " + res[i].product_price + " | " + "QTY: " + res[i].product_quantity);
+    console.log ("ID: " + res[i].adidas_id + " | " + "Product: " + res[i].product_make + " | " + "Department: " + res[i].product_style + " | " + "Price: " + res[i].product_price + " | " + "QTY: " + res[i].product_quantity);
     console.log('-------------------')
   }
 
@@ -59,7 +59,7 @@ connection.query('SELECT * FROM Products', function(err, res){
         //after purchase, updates quantity in Products
         connection.query("UPDATE Products SET ? WHERE ?", [
         {StockQuantity: (res[whatToBuy].StockQuantity - howMuchToBuy)},
-        {ItemID: ans.id}
+        {adidas_id: ans.id}
         ], function(err, result){
             if(err) throw err;
             console.log("Success! Your total is $" + grandTotal.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.");

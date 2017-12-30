@@ -16,7 +16,7 @@ CREATE TABLE Products(
     -- product_price --
     product_price DECIMAL(10,2) NOT NULL,
     -- product_quantity --
-	product_quantity INT(10) NOT NULL,
+	product_quantity INT(255) NOT NULL,
 
       -- Sets "adidas_id" as this table's primary key which means all data contained within it will be unique --
     PRIMARY KEY(adidas_id)
@@ -51,10 +51,10 @@ CREATE TABLE Department(
     -- 
     department_id INTEGER AUTO_INCREMENT NOT NULL,
     department_name VARCHAR(50) NOT NULL,
-    over_head_costs DECIMAL(10,2) NOT NULL,
+    overhead_costs DECIMAL(10,2) NOT NULL,
     total_sales DECIMAL(10,2) NOT NULL,
     PRIMARY KEY(department_id));
-
+    
 INSERT INTO department(department_name, overhead_costs, total_sales)
 VALUES ('Firm Ground Cleats', 50000.00, 15000.00),
     ('Soft Ground Cleats', 20000.00, 12000.00),

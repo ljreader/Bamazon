@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
 
 function start(){
 //prints the items for sale and their details
-connection.query('SELECT * FROM products', function(err, res){
+connection.query('SELECT * FROM Products', function(err, res){
   if(err) throw err;
 
   console.log('_.~"~._.~"~._.~Welcome to BAMazon~._.~"~._.~"~._')
@@ -57,7 +57,7 @@ connection.query('SELECT * FROM products', function(err, res){
       //check if quantity is sufficient
       if(res[whatToBuy].StockQuantity >= howMuchToBuy){
         //after purchase, updates quantity in Products
-        connection.query("UPDATE products SET ? WHERE ?", [
+        connection.query("UPDATE Products SET ? WHERE ?", [
         {StockQuantity: (res[whatToBuy].StockQuantity - howMuchToBuy)},
         {ItemID: ans.id}
         ], function(err, result){

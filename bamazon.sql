@@ -6,7 +6,7 @@ CREATE DATABASE bamazon_db;
 USE bamazon_db;
 
 -- Creates the table "products" within bamazon_db --
-CREATE TABLE products(
+CREATE TABLE Products(
       -- Creates a numeric column called "adidas_id" which will automatically increment its default value as we create new rows --
     adidas_id INTEGER (12) AUTO_INCREMENT NOT NULL,
     -- unique id for each product --
@@ -23,10 +23,10 @@ CREATE TABLE products(
 );
 
 -- Select from products --
-SELECT * FROM products;
+SELECT * FROM Products;
 
 -- Creates new rows in products table containing data in all named columns --
-INSERT INTO products(product_make,product_style,product_price,product_quantity)
+INSERT INTO Products(product_make,product_style,product_price,product_quantity)
 VALUES
     -- Firm Ground Cleats --
     ("Nemeziz","Firm Ground Cleats",289.99,150),
@@ -47,20 +47,20 @@ VALUES
     ("Mundial Goal","Indoor Shoe",119.95,123);
 
 -- Creates new rows in the department table containing data in all named columns --
-CREATE TABLE department(
-    -- 
-    department_id INTEGER AUTO_INCREMENT NOT NULL,
-    department_name VARCHAR(50) NOT NULL,
-    overhead_costs DECIMAL(10,2) NOT NULL,
-    total_sales DECIMAL(10,2) NOT NULL,
-    PRIMARY KEY(department_id));
+-- CREATE TABLE Department(
+--     -- 
+--     department_id INTEGER AUTO_INCREMENT NOT NULL,
+--     department_name VARCHAR(50) NOT NULL,
+--     overhead_costs DECIMAL(10,2) NOT NULL,
+--     total_sales DECIMAL(10,2) NOT NULL,
+--     PRIMARY KEY(department_id));
 
-INSERT INTO department(department_name, overhead_costs, total_sales)
-VALUES ('Soft Ground Cleats', 50000.00, 15000.00),
-    ('ELECTRONICS', 20000.00, 12000.00),
-    ('HOME', 30000.00, 15000.00),
-    ('BODY & HEALTH', 3000.00, 12000.00),
-    ('Firm Ground Cleats', 1200.00, 15000.00),
-    ('KIDS', 40000.00, 12000.00),
-    ('Turf', 35000.00, 15000.00),
-    ('Indoor', 12000.00, 12000.00);
+-- INSERT INTO department(department_name, overhead_costs, total_sales)
+-- VALUES ('Soft Ground Cleats', 50000.00, 15000.00),
+--     ('ELECTRONICS', 20000.00, 12000.00),
+--     ('HOME', 30000.00, 15000.00),
+--     ('BODY & HEALTH', 3000.00, 12000.00),
+--     ('Firm Ground Cleats', 1200.00, 15000.00),
+--     ('KIDS', 40000.00, 12000.00),
+--     ('Turf', 35000.00, 15000.00),
+--     ('Indoor', 12000.00, 12000.00);

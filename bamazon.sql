@@ -14,7 +14,7 @@ CREATE TABLE Products(
 	-- product_style --
     product_style VARCHAR(50) NOT NULL,
     -- product_price --
-    product_price DECIMAL(10,2) NOT NULL,
+    product_price DECIMAL(65,2) NOT NULL,
     -- product_quantity --
 	product_quantity INT(255) NOT NULL,
 
@@ -29,35 +29,36 @@ SELECT * FROM Products;
 INSERT INTO Products(product_make,product_style,product_price,product_quantity)
 VALUES
     -- Firm Ground Cleats --
-    ("Nemeziz","Firm Ground Cleats",289.99,150),
+    ("Nemeziz","Firm Ground Cleats",289.99,15),
     ("Copa","Firm Ground Cleats",199.99,35),
-    ("Predator","Firm Ground Cleats",299.99,230),
-    ("Copa Mundial","Firm Ground Cleats",149.99,175),
+    ("Predator","Firm Ground Cleats",299.99,23),
+    ("Copa Mundial","Firm Ground Cleats",149.99,17),
     -- Soft Ground Cleats --
-    ("World Cup","Soft Ground Cleats",159.99,200),
+    ("World Cup","Soft Ground Cleats",159.99,20),
     -- Artificial Grass Cleats --
-    ("360 Agility","Artificial Grass Cleats",199.99,155),
+    ("360 Agility","Artificial Grass Cleats",199.99,15),
     -- Turf Cleats --
-    ("Predator Tango","Turf",179.99,135),
-    ("Mundial Team","Turf Cleats",94.99,142),
-    ("Ace Tango","Turf Cleats",64.99,125),
-    ("Copa Tango","Turf Cleats",139.99,157),
+    ("Predator Tango","Turf",179.99,35),
+    ("Mundial Team","Turf Cleats",94.99,42),
+    ("Ace Tango","Turf Cleats",64.99,25),
+    ("Copa Tango","Turf Cleats",139.99,57),
     -- Indoor --
-    ("Samba","Indoor Shoe",95.50,135),
-    ("Mundial Goal","Indoor Shoe",119.95,123);
+    ("Samba","Indoor Shoe",95.50,35),
+    ("Mundial Goal","Indoor Shoe",119.95,23);
 
 -- Creates new rows in the department table containing data in all named columns --
-CREATE TABLE Department(
+CREATE TABLE Departments(
     -- 
     department_id INTEGER AUTO_INCREMENT NOT NULL,
-    department_name VARCHAR(50) NOT NULL,
+    product_style VARCHAR(50) NOT NULL,
     overhead_costs DECIMAL(10,2) NOT NULL,
     total_sales DECIMAL(10,2) NOT NULL,
     PRIMARY KEY(department_id));
     
-INSERT INTO department(department_name, overhead_costs, total_sales)
+INSERT INTO Departments(product_style, overhead_costs, total_sales)
 VALUES ('Firm Ground Cleats', 50000.00, 15000.00),
     ('Soft Ground Cleats', 20000.00, 12000.00),
     ('Artificial Grass Cleats', 30000.00, 15000.00),
     ('Turf Cleats', 3000.00, 12000.00),
     ('Indoor', 1200.00, 15000.00);
+

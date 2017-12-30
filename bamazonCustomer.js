@@ -15,11 +15,11 @@ function start(){
 connection.query('SELECT * FROM Products', function(err, res){
   if(err) throw err;
 
-  console.log('Welcome to Bamazon')
+  console.log('Welcome to Bamazon!')
   console.log('-------------------')
 
   for(var i = 0; i<res.length; i++){
-    console.log ("ID: " + res[i].adidas_id + " | " + "Product: " + res[i].product_make + " | " + "Department: " + res[i].product_style + " | " + "Price: " + res[i].product_price + " | " + "QTY: " + res[i].product_quantity);
+    console.log ("id: " + res[i].adidas_id + " | " + "product: " + res[i].product_make + " | " + "Departments: " + res[i].product_style + " | " + "Price: " + res[i].product_price + " | " + "How many pairs would you like ?: " + res[i].product_quantity);
     console.log('-------------------')
   }
 
@@ -28,7 +28,7 @@ connection.query('SELECT * FROM Products', function(err, res){
     {
       type: "input",
       name: "id",
-      message: "What is the ID of the product you would like to purchase?",
+      message: "What is the id of the boots you would like to purchase?",
       validate: function(value){
         if(isNaN(value) == false && parseInt(value) <= res.length && parseInt(value) > 0){
           return true;
@@ -40,7 +40,7 @@ connection.query('SELECT * FROM Products', function(err, res){
     {
       type: "input",
       name: "qty",
-      message: "How much would you like to purchase?",
+      message: "How many pairs would you like to purchase?",
       validate: function(value){
         if(isNaN(value)){
           return false;
@@ -52,7 +52,7 @@ connection.query('SELECT * FROM Products', function(err, res){
     ]).then(function(ans){
       var whatToBuy = (ans.id)-1;
       var howMuchToBuy = parseInt(ans.qty);
-      var grandTotal = parseFloat(((res[whatToBuy].Price)*howMuchToBuy).toFixed(2));
+      var grandTotal = parseFloat(((res[whatToBuy].price)*howMuchToBuy).toFixed(2));
 
       //check if quantity is sufficient
       if(res[whatToBuy].StockQuantity >= howMuchToBuy){
@@ -62,7 +62,7 @@ connection.query('SELECT * FROM Products', function(err, res){
         {adidas_id: ans.id}
         ], function(err, result){
             if(err) throw err;
-            console.log("Success! Your total is $" + grandTotal.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.");
+            console.log("Thanks! Your total is $" + grandTotal.toFixed(2) + ". Your new  will be shipped to you in 3-5 business days.");
         });
 
         connection.query("SELECT * FROM Departments", function(err, deptRes){
@@ -74,7 +74,7 @@ connection.query('SELECT * FROM Products', function(err, res){
             }
           }
           
-          //updates totalSales in departments table
+          //updates totalSales in Departments table
           connection.query("UPDATE Departments SET ? WHERE ?", [
           {TotalSales: deptRes[index].TotalSales + grandTotal},
           {product_style: res[whatToBuy].product_style}
@@ -103,7 +103,7 @@ function reprompt(){
     if(ans.reply){
       start();
     } else{
-      console.log("See you soon!");
+      console.log("Thanks, see you soon!");
     }
   });
 }

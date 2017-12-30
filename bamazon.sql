@@ -47,20 +47,17 @@ VALUES
     ("Mundial Goal","Indoor Shoe",119.95,123);
 
 -- Creates new rows in the department table containing data in all named columns --
--- CREATE TABLE Department(
---     -- 
---     department_id INTEGER AUTO_INCREMENT NOT NULL,
---     department_name VARCHAR(50) NOT NULL,
---     overhead_costs DECIMAL(10,2) NOT NULL,
---     total_sales DECIMAL(10,2) NOT NULL,
---     PRIMARY KEY(department_id));
+CREATE TABLE Department(
+    -- 
+    department_id INTEGER AUTO_INCREMENT NOT NULL,
+    department_name VARCHAR(50) NOT NULL,
+    over_head_costs DECIMAL(10,2) NOT NULL,
+    total_sales DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY(department_id));
 
--- INSERT INTO department(department_name, overhead_costs, total_sales)
--- VALUES ('Soft Ground Cleats', 50000.00, 15000.00),
---     ('ELECTRONICS', 20000.00, 12000.00),
---     ('HOME', 30000.00, 15000.00),
---     ('BODY & HEALTH', 3000.00, 12000.00),
---     ('Firm Ground Cleats', 1200.00, 15000.00),
---     ('KIDS', 40000.00, 12000.00),
---     ('Turf', 35000.00, 15000.00),
---     ('Indoor', 12000.00, 12000.00);
+INSERT INTO department(department_name, overhead_costs, total_sales)
+VALUES ('Firm Ground Cleats', 50000.00, 15000.00),
+    ('Soft Ground Cleats', 20000.00, 12000.00),
+    ('Artificial Grass Cleats', 30000.00, 15000.00),
+    ('Turf Cleats', 3000.00, 12000.00),
+    ('Indoor', 1200.00, 15000.00);

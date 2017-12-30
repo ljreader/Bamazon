@@ -15,12 +15,12 @@ function start(){
 connection.query('SELECT * FROM Products', function(err, res){
   if(err) throw err;
 
-  console.log('_.~"~._.~"~._.~Welcome to BAMazon~._.~"~._.~"~._')
-  console.log('----------------------------------------------------------------------------------------------------')
+  console.log('Welcome to Bamazon')
+  console.log('-------------------')
 
-  for(var i = 0; i<res.length;i++){
+  for(var i = 0; i<res.length; i++){
     console.log("ID: " + res[i].adidas_id + " | " + "Product: " + res[i].product_make + " | " + "Department: " + res[i].product_style + " | " + "Price: " + res[i].product_price + " | " + "QTY: " + res[i].product_quantity);
-    console.log('--------------------------------------------------------------------------------------------------')
+    console.log('-------------------')
   }
 
   console.log(' ');
